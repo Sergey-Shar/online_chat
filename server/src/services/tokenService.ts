@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken'
-import config from 'config'
-
+import dotenv from 'dotenv'
+dotenv.config()
 import Token from '../models/Token.js'
 import { Types } from 'mongoose'
 
 class TokenService {
-	jwtPrivateKey: string = config.get('jwtPrivateKey')
-	jwtPrivateKeyRefresh: string = config.get('jwtPrivateKeyRefresh')
+	jwtPrivateKey: string = process.env.JWT_PRIVATE_KEY as string
+	jwtPrivateKeyRefresh: string = process.env.JWT_PRIVATE_REFRESH_KEY as string
 
 	public generateNewToken({ _id }: { _id: Types.ObjectId }) {
 		const accessToken = jwt.sign({ _id }, this.jwtPrivateKey, { expiresIn: '1h' })
