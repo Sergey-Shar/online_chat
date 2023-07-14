@@ -1,6 +1,3 @@
 {
-	"port": "3003",
-	"mongoUri": "mongodb+srv://sergeihar82:mQCxcSX3IQ8kIzno@cluster0.uqhxqvu.mongodb.net/?retryWrites=true&w=majority",
-	"jwtPrivateKey":"jwtPrivateKey",
-	"jwtPrivateKeyRefresh":"jwtPrivateKeyRefresh"
+	"port": 3003
 }

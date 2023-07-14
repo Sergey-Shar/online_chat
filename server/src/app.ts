@@ -25,9 +25,8 @@ class Server {
 
  public async start(): Promise<void> {
    
-  try {
-   await mongoose.connect(config.get('mongoUri'));
-
+   try {
+   await mongoose.connect(process.env.MONGO_URI as string)
    this.initializeMiddleware();
    this.initializeRoutes();
   
