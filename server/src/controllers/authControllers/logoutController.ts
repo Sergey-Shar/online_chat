@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import tokenService from '../services/tokenService.js'
+import tokenService from '../../services/tokenService.js'
 class LogoutController {
 	public async logout(req: Request, res: Response) {
 		try {

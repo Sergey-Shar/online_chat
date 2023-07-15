@@ -1,7 +1,5 @@
 import express, { Router } from 'express'
-import logoutController from '../controllers/logoutController.js'
-import { signInValidationMiddleware } from '../middleware/signInValidation.js'
-
+import logoutController from '../../controllers/authControllers/logoutController.js'
 const router: Router = express.Router()
 
 router
