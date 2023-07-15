@@ -6,7 +6,7 @@ import { Types } from 'mongoose'
 
 class TokenService {
 	jwtPrivateKey: string = process.env.JWT_PRIVATE_KEY as string
-	jwtPrivateKeyRefresh: string = process.env.JWT_PRIVATE_REFRESH_KEY as string
+	jwtPrivateKeyRefresh: string = process.env.JWT_PRIVATE_KEY_REFRESH as string
 
 	public generateNewToken({ _id }: { _id: Types.ObjectId }) {
 		const accessToken = jwt.sign({ _id }, this.jwtPrivateKey, { expiresIn: '1h' })
@@ -57,7 +57,7 @@ class TokenService {
 	}
 
 	public async removeRefreshToken(refreshToken: string) {
-			await Token.findOneAndDelete({ refreshToken })
+		await Token.findOneAndDelete({ refreshToken })
 	}
 }
 

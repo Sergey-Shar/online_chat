@@ -1,15 +1,14 @@
 import { Request, Response, NextFunction } from 'express'
 import tokenService from '../services/tokenService.js'
-export const authenticateToken = async (
+export const authenticateTokenMiddleware = async (
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) => {
-
-  if(req.method === 'OPTIONS') {
+	if (req.method === 'OPTIONS') {
 		return next()
-		}
-	
+	}
+
 	try {
 		const token = req.headers.authorization?.split(' ')[1]
 		if (!token) {
